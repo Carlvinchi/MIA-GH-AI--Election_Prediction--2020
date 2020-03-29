@@ -52,7 +52,7 @@ class StdOutListener(StreamListener):
 if __name__ == '__main__':
     # Authenticate using config.py and connect to Twitter Streaming API.
     hash_tag_list = [
-        "ajohn dramani mahama", "asiedu nketia", "ndc", "ex-president of ghana", "former president og Ghana",
+        "ajohn dramani mahama", "asiedu nketia", "ndc", "ex-president of ghana", "former president of Ghana",
         "ex president of Ghana", "mahama led administration"
     ]
     fetched_tweets_filename = "Tweets/tweets_for_ndc.json"

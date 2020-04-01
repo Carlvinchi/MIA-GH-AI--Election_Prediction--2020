@@ -15,7 +15,7 @@ class TwitterStreamer():
         pass
 
     def stream_tweets(self, fetched_tweets_filename, hash_tag_list):
-        # This handles Twitter authetification and the connection to Twitter Streaming API
+        # This handles Twitter authentication and the connection to Twitter Streaming API
         listener = StdOutListener(fetched_tweets_filename)
         auth = OAuthHandler(twitter_credentials.CONSUMER_KEY, twitter_credentials.CONSUMER_SECRET)
         auth.set_access_token(twitter_credentials.ACCESS_TOKEN, twitter_credentials.ACCESS_TOKEN_SECRET)
@@ -52,10 +52,10 @@ class StdOutListener(StreamListener):
 if __name__ == '__main__':
     # Authenticate using config.py and connect to Twitter Streaming API.
     hash_tag_list = [
-        "ajohn dramani mahama", "asiedu nketia", "ndc", "ex-president of ghana", "former president of Ghana",
+        "ajohn dramani mahama", "asiedu nketia", "ndc", "ex-president of ghana", "former president og Ghana",
         "ex president of Ghana", "mahama led administration"
     ]
-    fetched_tweets_filename = "Tweets/tweets_for_ndc.json"
+    fetched_tweets_filename = "Tweets_orig/tweets_for_ndc.json"
 
     twitter_streamer = TwitterStreamer()
     twitter_streamer.stream_tweets(fetched_tweets_filename, hash_tag_list)

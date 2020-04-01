@@ -50,12 +50,11 @@ class StdOutListener(StreamListener):
 
 
 if __name__ == '__main__':
-    # Authenticate using config.py and connect to Twitter Streaming API.
     hash_tag_list = [
         "akuffo addo", "bawumia", "npp", "president of ghana", "vice president of Ghana", "ministers of Ghana",
         "nana addo dankwa akuffo addo", "nana akuffo addo led administration", "sitting government of ghana", "current president of Ghana"
     ]
-    fetched_tweets_filename = "Tweets/tweets_for_npp.json"
+    fetched_tweets_filename = "Tweets_orig/tweets_for_npp.json"
 
     twitter_streamer = TwitterStreamer()
     twitter_streamer.stream_tweets(fetched_tweets_filename, hash_tag_list)

@@ -7,7 +7,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import twitter_credentials
-import datetime
+import calendar
+import time
+ 
 
 # Replace the API_KEY and API_SECRET with your application's key and secret.
 API_KEY = twitter_credentials.CONSUMER_KEY
@@ -94,7 +96,7 @@ plt.bar(graphs.keys(), graphs.values())
 plt.title('A Plot of Sentiments base on Nana Addo tweet data')
 plt.xlabel('Sentiments')
 plt.ylabel('values')
-graphName = "graph-" + str(datetime.datetime.now()) + ".png"
+graphName = "graph-" + str(calendar.timegm(time.gmtime())) + ".png"
 plt.savefig(graphName)
 plt.show()
 #print(sumdf)

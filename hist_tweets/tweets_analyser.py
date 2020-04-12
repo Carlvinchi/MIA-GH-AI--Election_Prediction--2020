@@ -36,14 +36,14 @@ def sentiment_checker2(cleaned_tweet):
     return score_list
 
 # function for putting data into data frame
-def tweets_dataframe(new_entry):
-    length_of_entry = len(new_entry)-1
+def tweets_dataframe(tweet_id, tweet_text,tweet_date, tweet_retweets, tweet_likes):
+    length_of_entry = len(tweet_text)-1
     print(length_of_entry)
     #print(new_entry[0]['full_text'])
     COLS = ['tweets']
     df = pd.DataFrame(columns=COLS)
     for x in range(0,length_of_entry):
-        text = new_entry[x]['text']
+        text = tweet_text[x]
         print("Processed tweets.... ",x)
         #first cleaninig of data
         cleaned_text = preprocessor.preprocess_tweet(text)
@@ -52,11 +52,10 @@ def tweets_dataframe(new_entry):
         feelings = sentiment_checker(filtered_tweet)
         feelings2 = sentiment_checker2(filtered_tweet)
         single = pd.DataFrame(data=[text],columns=COLS)
-        single['id'] = np.array([new_entry[x]['id']])
-        single['date'] =np.array ([new_entry[x]['created_at']])
-        single['source'] =np.array ([new_entry[x]['source']])
-        single['likes'] =np.array ([new_entry[x]['favorite_count']])
-        single['retweets'] =np.array ([new_entry[x]['retweet_count']])
+        single['id'] = np.array([tweet_id[x]])
+        single['date'] =np.array ([tweet_date[x]])
+        single['likes'] =np.array ([tweet_likes[x]])
+        single['retweets'] =np.array ([tweet_retweets[x]])
         single['clean_tweet'] =np.array ([filtered_tweet])
         single['sentiment_negative'] =np.array ([feelings['neg'] - feelings2[1]])
         single['sentiment_positive'] =np.array ([feelings['pos'] + feelings2[0]])

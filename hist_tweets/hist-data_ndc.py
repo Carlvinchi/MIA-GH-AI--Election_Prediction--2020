@@ -2,7 +2,8 @@ import os.path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import datetime
+import calendar
+import time
 import GetOldTweets3 as got
 import  tweets_analyser
 
@@ -51,6 +52,6 @@ if __name__=="__main__":
     plt.xlabel('Sentiments')
     plt.ylabel('values')
 
-    graphName = "graph-" + str(datetime.datetime.now()) + ".png"
+    graphName = "graph-" + str(calendar.timegm(time.gmtime())) + ".png"
     plt.savefig(graphName)
     plt.show()
